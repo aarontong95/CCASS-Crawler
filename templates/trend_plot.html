@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block body %}
+    <script type='text/javascript'>
+    $(window).load(function(){
+      var data = {{data|tojson}};
+      var columns = {{columns|tojson}};
+      $(function() {
+        $('#shareholding-table').bootstrapTable({
+          data: data,
+          columns: columns,
+        });
+      });
+    });
+  </script>
+    {% if error %}
+    <div class="alert alert-warning" style="margin-top:60px;height: 50px;margin-left: 30px;margin-right: 30px">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning: </strong>{{ error }} 
+    </div>
+    {% endif %}
+    {% if msg %}
+    <div class="alert alert-success" style="margin-top:60px;height: 50px;margin-left: 30px;margin-right: 30px">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> {{ msg }}
+    </div>
+    {% endif %}
+<div class="container">
+<h1 style="margin-top:100px">Welcome! This is Trend Plot page. </h1>
+<form action="/trend_plot" method="post">
+    <label>Stock Code</label>
+    <input type="text" id="code" name="stock_code" placeholder="e.g. 00001" value={{code}}>
+    <label>Start Date</label>
+    <input type="date" id="start-date" name="start_date" value={{start_date}}>
+    <label>End Date</label>
+    <input type="date" id="end-date" name="end_date" value={{end_date}}>
+    <input type="submit" value="Submit">
+</form>
+</div>
+  <div class="container" style="padding: 10px; ">
+    <h1>{{title}}</h1>
+    <br/>
+    <div id="toolbar"></div>
+    <table
+      id="shareholding-table"
+      data-toggle="true"
+      data-toolbar="#toolbar"
+      data-search="true"
+      data-show-columns="true"
+      data-pagination="true"
+      data-height="500">
+    </table>
+  </div>
+
+<style>
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+      
+<img src="{{url_for('static', filename='output.png')}}" />
+
+{% endblock %}
