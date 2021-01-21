@@ -33,7 +33,7 @@ Go to http://localhost:5000
 </pre>
 
 ## Todo
-* Using asynchronous methods to crawl the data
+* Use asynchronous methods to crawl the data
 * Add validation of the code
 
 ## Webpage
