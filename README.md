@@ -37,7 +37,7 @@ Go to http://localhost:5000
 * Add validation of the code
 
 ## Webpage
-![alt text](https://github.com/aarontong95/CCASS-Crawler/blob/main/docs/sharehold.png)
+![alt text](https://github.com/aarontong95/CCASS-Crawler/blob/main/docs/shareholding.png)
 
 ![alt text](https://github.com/aarontong95/CCASS-Crawler/blob/main/docs/trend_plot.png)
   
